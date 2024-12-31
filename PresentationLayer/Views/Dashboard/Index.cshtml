@@ -1,8 +1,26 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_MessageLayout.cshtml";
+
+    // Günün saatine göre selamlama metni
+    string greeting;
+    int currentHour = DateTime.Now.Hour;
+
+    if (currentHour >= 6 && currentHour < 12)
+    {
+        greeting = "Günaydın";
+    }
+    else if (currentHour >= 12 && currentHour < 18)
+    {
+        greeting = "İyi Günler";
+    }
+    else if (currentHour >= 18 && currentHour < 22)
+    {
+        greeting = "İyi Akşamlar";
+    }
+    else
+    {
+        greeting = "İyi Geceler";
+    }
 }
-
-<h1>İyi Akşamlar, Fatih</h1>
-
+<h1>@greeting, Fatih</h1>
