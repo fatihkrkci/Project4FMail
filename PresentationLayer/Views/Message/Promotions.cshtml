@@ -1,0 +1,47 @@
+﻿@model List<Message>
+
+@{
+    ViewData["Title"] = "Promotions";
+    Layout = "~/Views/Shared/_MessageLayout.cshtml";
+}
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-themecolor">Tanıtımlar</h3>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">FMail</a></li>
+            <li class="breadcrumb-item active">Tanıtımlar</li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="card col-12">
+        <div class="card-body">
+            <h3 class="card-title">Tanıtımlar</h3>
+            <div class="table-responsive table-striped">
+                @if (Model != null && Model.Any())
+                {
+                    <table class="table">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="mailbox-name"><a href="/Message/Details/@item.MessageId">@item.SenderMail</a></td>
+                                <td class="mailbox-subject">
+                                    <b>@item.Subject</b>
+                                </td>
+                                <td class="mailbox-attachment"></td>
+                                <td class="mailbox-date">@item.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                            </tr>
+                        }
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-info text-center mt-4 py-3">
+                        <h5>Tanıtımlar kutunuzda henüz bir mesaj yok. Yeni mesajlar geldiğinde burada görüntüleyebilirsiniz.</h5>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

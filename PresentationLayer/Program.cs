@@ -1,16 +1,18 @@
 using BusinessLayer.Container;
 using DataAccessLayer.Context;
 using EntityLayer.Concrete;
+using FluentValidation.AspNetCore;
+using PresentationLayer.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<FMailContext>();
-builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<FMailContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<FMailContext>().AddErrorDescriber<CustomIdentityErrorValidator>();
 
 builder.Services.ContainerDependencies();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddFluentValidation();
 
 var app = builder.Build();
 

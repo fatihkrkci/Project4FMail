@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<Category>
+
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_MessageLayout.cshtml";
 
@@ -23,4 +25,4 @@
         greeting = "İyi Geceler";
     }
 }
-<h1>@greeting, Fatih</h1>
+<h1>@greeting, @ViewBag.UserFirstName</h1>

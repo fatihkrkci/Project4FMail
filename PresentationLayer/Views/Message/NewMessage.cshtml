@@ -1,0 +1,73 @@
+﻿@model Message
+
+@{
+    ViewData["Title"] = "NewMessage";
+    Layout = "~/Views/Shared/_MessageLayout.cshtml";
+}
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-themecolor">Yeni Mesaj Oluştur</h3>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">FMail</a></li>
+            <li class="breadcrumb-item active">Yeni Mesaj Oluştur</li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="card col-12">
+        <div class="card-body">
+            <h3 class="card-title">Yeni Mesaj Oluştur</h3>
+            <form method="post" action="/Message/NewMessage">
+                <div class="row">
+                    <div class="col-6 mb-3">
+                        <label for="recipient" class="form-label">Alıcı</label>
+                        <input asp-for="ReceiverMail" type="email" class="form-control" id="recipient" placeholder="Örn: ornek@mail.com">
+                        <span class="text-danger" asp-validation-for="ReceiverMail"></span>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="category" class="form-label">Kategori</label>
+                        <select class="form-select" id="category" asp-for="CategoryId">
+                            <option value="">Kategori Seçin</option>
+                            @foreach (var category in ViewBag.CategoryTypes as List<SelectListItem>)
+                            {
+                                <option value="@category.Value">@category.Text</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Konu</label>
+                    <input type="text" class="form-control" id="subject" asp-for="Subject" placeholder="Konu başlığı">
+                    <span class="text-danger" asp-validation-for="Subject"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Mesaj</label>
+                    <textarea id="message" asp-for="Content" class="form-control summernote"></textarea>
+                    <span class="text-danger" asp-validation-for="Content"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Gönder</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <link href="https://cdn.jsdelivr.net/npm/summernote/dist/summernote-bs5.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote/dist/summernote-bs5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.summernote').summernote({
+                height: 300,
+                placeholder: 'Mesajınızı buraya yazın...',
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        });
+    </script>
+}

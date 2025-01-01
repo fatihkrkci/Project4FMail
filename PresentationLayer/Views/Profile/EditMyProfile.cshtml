@@ -1,0 +1,89 @@
+﻿@model UserEditViewModel
+
+@{
+    ViewData["Title"] = "EditMyProfile";
+    Layout = "~/Views/Shared/_MessageLayout.cshtml";
+}
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-themecolor">Gelen Kutusu</h3>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">FMail</a></li>
+            <li class="breadcrumb-item active">Gelen Kutusu</li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="card">
+        <div class="card-content">
+            <div class="card-body">
+            <h4 class="card-title">Kişisel Bilgilerim</h4>
+                <form class="form form-vertical" method="post">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group has-icon-left">
+                                    <label for="first-name-icon">Ad</label>
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" asp-for="Name" id="first-name-icon">
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-person"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group has-icon-left">
+                                    <label for="first-name-icon">Soyad</label>
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" asp-for="Surname" id="first-name-icon">
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-people"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group has-icon-left">
+                                    <label for="email-id-icon">Kullanıcı Adı</label>
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" asp-for="Username" id="email-id-icon">
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-person-badge"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group has-icon-left">
+                                    <label for="email-id-icon">E-Posta Adresi</label>
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" asp-for=Email id="email-id-icon">
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-envelope"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group has-icon-left">
+                                    <label for="password-id-icon">Şifre</label>
+                                    <div class="position-relative">
+                                        <input type="password" class="form-control" asp-for="Password" id="password-id-icon">
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-lock"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary me-1 mb-1">Kaydet</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+﻿@model List<Message>
+
+@{
+    ViewData["Title"] = "Inbox";
+    Layout = "~/Views/Shared/_MessageLayout.cshtml";
+}
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h3 class="text-themecolor">Gelen Kutusu</h3>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">FMail</a></li>
+            <li class="breadcrumb-item active">Gelen Kutusu</li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="card col-12">
+        <div class="card-body">
+            <h3 class="card-title">Gelen Kutusu</h3>
+            <div class="table-responsive table-striped">
+                @if (Model != null && Model.Any())
+                {
+                    <table class="table">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="mailbox-name">
+                                    <a href="/Message/Details/@item.MessageId">@item.SenderMail</a>
+                                </td>
+                                <td class="mailbox-subject">
+                                    <b>@item.Subject</b>
+                                </td>
+                                <td class="mailbox-date">@item.CreatedAt.ToString("dd.MM.yyyy HH:mm")</td>
+                                <td>
+                                    <a class="btn btn-danger" href="/Message/Delete/@item.MessageId">Sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-info text-center mt-4 py-3">
+                        <h5>Gelen kutunuzda henüz bir mesaj yok. Yeni mesajlar geldiğinde burada görüntüleyebilirsiniz.</h5>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

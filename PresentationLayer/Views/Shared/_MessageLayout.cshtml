@@ -21,7 +21,7 @@
     <meta name="description"
           content="AdminWrap Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Cari Paneli | Online Ticari Otomasyon</title>
+    <title>FMail</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/adminwrap-lite/" />
     <link rel="icon" type="image/png" sizes="16x16" href="~/admin-wrap-lite-master/assets/images/favicon.png">
     <link href="~/admin-wrap-lite-master/assets/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
     <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
-            <p class="loader__label">Cari Paneli | Online Ticari Otomasyon</p>
+            <p class="loader__label">FMail</p>
         </div>
     </div>
     <div id="main-wrapper">
@@ -90,6 +90,11 @@
                         <li>
                             <a class="waves-effect waves-dark" href="/Profile/EditMyProfile/" aria-expanded="false">
                                 <i class="fa fa-user-circle"></i><span class="hide-menu">Profilim</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="waves-effect waves-dark" href="/Message/NewMessage/" aria-expanded="false">
+                                <i class="fa fa-edit"></i><span class="hide-menu">Mesaj Gönder</span>
                             </a>
                         </li>
                         <li>
@@ -154,5 +159,6 @@
     <script src="~/admin-wrap-lite-master/html/js/waves.js"></script>
     <script src="~/admin-wrap-lite-master/html/js/sidebarmenu.js"></script>
     <script src="~/admin-wrap-lite-master/html/js/custom.min.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
